@@ -26,7 +26,7 @@ COPY --from=builder /app/dist ./dist
 COPY server/ ./server/
 
 # Copy system prompt file
-COPY "SYSTEM PROMPT - Assistente do Salesforce.txt" ./
+COPY ["SYSTEM PROMPT - Assistente do Salesforce.txt", "./"]
 
 # Environment
 ENV NODE_ENV=production
