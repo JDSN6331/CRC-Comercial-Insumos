@@ -1,0 +1,17 @@
+# ============================================
+# CRC Comercial Insumos — Dependências do Projeto
+# ============================================
+# Este é um projeto Node.js / TypeScript / Vite.
+# O arquivo principal de dependências é o package.json.
+# Este arquivo é fornecido para referência dos requisitos do sistema.
+
+# Ambient Engine
+node>=20.0.0
+npm>=10.0.0
+
+# Production Dependencies
+firebase>=12.1.0
+
+# Development Dependencies
+vite>=8.2.0
+typescript>=6.0.2
