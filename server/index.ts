@@ -80,6 +80,11 @@ function adminMiddleware(req: any, res: any, next: any) {
   next();
 }
 
+// Health Check Endpoint for Docker / Easypanel
+app.get('/api/health', (_req, res) => {
+  res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 // ============================================
 // AUTH ROUTES
 // ============================================
