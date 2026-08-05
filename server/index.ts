@@ -318,8 +318,15 @@ app.put('/api/admin/users/:id/password', authMiddleware, adminMiddleware, async 
 
 if (NODE_ENV === 'production') {
   const distPath = join(__dirname, '..', 'dist');
-  app.use(express.static(distPath));
-  app.get('*', (req, res) => {
+  app.use(express.static(distPath, {
+    setHeaders: (res, path) => {
+      if (path.endsWith('.html')) {
+        res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      }
+    },
+  }));
+  app.get('*', (_req, res) => {
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.sendFile(join(distPath, 'index.html'));
   });
 }
